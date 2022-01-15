@@ -62,7 +62,7 @@ class SearchInputState extends State<SearchInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40 ,
+      height: 50 ,
       decoration: widget.boxDecoration ??
           BoxDecoration(
             //borderRadius: BorderRadius.circular(16),
@@ -70,7 +70,7 @@ class SearchInputState extends State<SearchInput> {
                 ? Colors.black54
                 : Colors.white,
           ),
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Row(
         children: <Widget>[
           //Icon(Icons.search),
