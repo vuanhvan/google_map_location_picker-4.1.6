@@ -469,7 +469,7 @@ class _MapFabs extends StatelessWidget {
       margin: const EdgeInsets.only(top: kToolbarHeight + 24, right: 8),
       child: Column(
         children: <Widget>[
-          if (layersButtonEnabled)
+          /*if (layersButtonEnabled)
             FloatingActionButton(
               backgroundColor: Colors.pink,
               onPressed: onToggleMapTypePressed,
@@ -477,7 +477,7 @@ class _MapFabs extends StatelessWidget {
               mini: true,
               child: const Icon(Icons.layers, color: Colors.white,),
               heroTag: "layers",
-            ),
+            ),*/
           if (myLocationButtonEnabled)
             FloatingActionButton(
               backgroundColor: Colors.pink,
