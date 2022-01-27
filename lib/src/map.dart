@@ -221,7 +221,7 @@ class MapPickerState extends State<MapPicker> {
               builder: (context, locationProvider, _) {
             return Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Row(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Flexible(
@@ -247,8 +247,44 @@ class MapPickerState extends State<MapPicker> {
                       },
                     ),
                   ),
-                  Spacer(),
-                  FloatingActionButton(
+                  SizedBox(height: 10,),
+                  FutureLoadingBuilder<Map<String, String>>(
+                    future: getAddress(locationProvider.lastIdleLocation),
+                    mutable: true,
+                    loadingIndicator: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RaisedButton(
+                          onPressed: null,
+                          child: Text('Confirm location'),
+                        ),
+                      ],
+                    ),
+                    builder: (context, data) {
+                      _address = data["address"];
+                      _placeId = data["placeId"];
+                      if(_address != null){
+                         return RaisedButton(
+                           onPressed: (){
+                             Navigator.of(context).pop({
+                               'location': LocationResult(
+                                 latLng: locationProvider.lastIdleLocation,
+                                 address: _address,
+                                 placeId: _placeId,
+                               )
+                             });
+                           },
+                           child: Text('Confirm location'),
+                         );
+                      }
+
+                      return RaisedButton(
+                        onPressed: null,
+                        child: Text('Confirm location'),
+                      );
+                    },
+                  ),
+                 /* FloatingActionButton(
                     backgroundColor: Colors.pink,
                     onPressed: () {
                       Navigator.of(context).pop({
@@ -261,7 +297,7 @@ class MapPickerState extends State<MapPicker> {
                     },
                     child: widget.resultCardConfirmIcon ??
                         Icon(Icons.arrow_forward, color: Colors.white,),
-                  ),
+                  ),*/
                 ],
               ),
             );
