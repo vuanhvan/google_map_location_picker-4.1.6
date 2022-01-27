@@ -222,6 +222,7 @@ class MapPickerState extends State<MapPicker> {
             return Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Flexible(
@@ -254,9 +255,13 @@ class MapPickerState extends State<MapPicker> {
                     loadingIndicator: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        RaisedButton(
-                          onPressed: null,
-                          child: Text('Confirm location'),
+                        Expanded(
+                          child: RaisedButton(
+                            color: Theme.of(context).primaryColor,
+                            elevation: 0,
+                            onPressed: null,
+                            child: Text('Confirm location'),
+                          ),
                         ),
                       ],
                     ),
@@ -264,23 +269,31 @@ class MapPickerState extends State<MapPicker> {
                       _address = data["address"];
                       _placeId = data["placeId"];
                       if(_address != null){
-                         return RaisedButton(
-                           onPressed: (){
-                             Navigator.of(context).pop({
-                               'location': LocationResult(
-                                 latLng: locationProvider.lastIdleLocation,
-                                 address: _address,
-                                 placeId: _placeId,
-                               )
-                             });
-                           },
-                           child: Text('Confirm location'),
+                         return Expanded(
+                           child: RaisedButton(
+                             color: Theme.of(context).primaryColor,
+                             elevation: 0,
+                             onPressed: (){
+                               Navigator.of(context).pop({
+                                 'location': LocationResult(
+                                   latLng: locationProvider.lastIdleLocation,
+                                   address: _address,
+                                   placeId: _placeId,
+                                 )
+                               });
+                             },
+                             child: Text('Confirm location'),
+                           ),
                          );
                       }
 
-                      return RaisedButton(
-                        onPressed: null,
-                        child: Text('Confirm location'),
+                      return Expanded(
+                        child: RaisedButton(
+                          color: Theme.of(context).primaryColor,
+                          elevation: 0,
+                          onPressed: null,
+                          child: Text('Confirm location'),
+                        ),
                       );
                     },
                   ),
