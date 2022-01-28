@@ -255,7 +255,7 @@ class MapPickerState extends State<MapPicker> {
                     loadingIndicator: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
-                          minimumSize: Size(double.infinity, 60),
+                          minimumSize: Size(double.infinity, 45),
                           primary: Theme.of(context).primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)
@@ -271,7 +271,7 @@ class MapPickerState extends State<MapPicker> {
                          return ElevatedButton(
                            style: ElevatedButton.styleFrom(
                                elevation: 0,
-                               minimumSize: Size(double.infinity, 60),
+                               minimumSize: Size(double.infinity, 45),
                                primary: Theme.of(context).primaryColor,
                                shape: RoundedRectangleBorder(
                                    borderRadius: BorderRadius.circular(8)
