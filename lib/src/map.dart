@@ -252,29 +252,24 @@ class MapPickerState extends State<MapPicker> {
                   FutureLoadingBuilder<Map<String, String>>(
                     future: getAddress(locationProvider.lastIdleLocation),
                     mutable: true,
-                    loadingIndicator: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                elevation: 0,
-                                minimumSize: Size(double.infinity, 45),
-                                primary: Theme.of(context).primaryColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)
-                                )
-                            ),
-                            onPressed: null,
-                            child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
-                          ),
+                    loadingIndicator: Expanded(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            minimumSize: Size(double.infinity, 45),
+                            primary: Theme.of(context).primaryColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)
+                            )
                         ),
-                      ],
+                        onPressed: null,
+                        child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
+                      ),
                     ),
                     builder: (context, data) {
                       _address = data["address"];
                       _placeId = data["placeId"];
-                      if(_address != null){
+                      //if(_address != null){
                          return Expanded(
                            child: ElevatedButton(
                                style: ElevatedButton.styleFrom(
@@ -297,9 +292,9 @@ class MapPickerState extends State<MapPicker> {
                              child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
                            ),
                          );
-                      }
+                      //}
 
-                      return  ElevatedButton(
+                      /*return  ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             elevation: 0,
                             minimumSize: Size(double.infinity, 45),
@@ -310,7 +305,7 @@ class MapPickerState extends State<MapPicker> {
                         ),
                         onPressed: null,
                         child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
-                      );
+                      );*/
                     },
                   ),
                  /* FloatingActionButton(
