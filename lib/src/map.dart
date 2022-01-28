@@ -294,7 +294,7 @@ class MapPickerState extends State<MapPicker> {
                                  )
                                });
                              },
-                             child: Text('Confirm location'),
+                             child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
                            ),
                          );
                       }
