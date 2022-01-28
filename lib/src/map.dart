@@ -256,11 +256,17 @@ class MapPickerState extends State<MapPicker> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
-                          child: RaisedButton(
-                            color: Theme.of(context).primaryColor,
-                            elevation: 0,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                elevation: 0,
+                                //minimumSize: Size(width, height),
+                                primary: Theme.of(context).primaryColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)
+                                )
+                            ),
                             onPressed: null,
-                            child: Text('Confirm location'),
+                            child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
                           ),
                         ),
                       ],
