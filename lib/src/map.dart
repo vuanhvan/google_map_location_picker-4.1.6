@@ -259,7 +259,7 @@ class MapPickerState extends State<MapPicker> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 elevation: 0,
-                                //minimumSize: Size(width, height),
+                                minimumSize: Size(double.infinity, 45),
                                 primary: Theme.of(context).primaryColor,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8)
@@ -276,9 +276,15 @@ class MapPickerState extends State<MapPicker> {
                       _placeId = data["placeId"];
                       if(_address != null){
                          return Expanded(
-                           child: RaisedButton(
-                             color: Theme.of(context).primaryColor,
-                             elevation: 0,
+                           child: ElevatedButton(
+                               style: ElevatedButton.styleFrom(
+                                   elevation: 0,
+                                   minimumSize: Size(double.infinity, 45),
+                                   primary: Theme.of(context).primaryColor,
+                                   shape: RoundedRectangleBorder(
+                                       borderRadius: BorderRadius.circular(8)
+                                   )
+                               ),
                              onPressed: (){
                                Navigator.of(context).pop({
                                  'location': LocationResult(
@@ -293,13 +299,17 @@ class MapPickerState extends State<MapPicker> {
                          );
                       }
 
-                      return Expanded(
-                        child: RaisedButton(
-                          color: Theme.of(context).primaryColor,
-                          elevation: 0,
-                          onPressed: null,
-                          child: Text('Confirm location'),
+                      return  ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            minimumSize: Size(double.infinity, 45),
+                            primary: Theme.of(context).primaryColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)
+                            )
                         ),
+                        onPressed: null,
+                        child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
                       );
                     },
                   ),
