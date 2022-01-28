@@ -252,45 +252,41 @@ class MapPickerState extends State<MapPicker> {
                   FutureLoadingBuilder<Map<String, String>>(
                     future: getAddress(locationProvider.lastIdleLocation),
                     mutable: true,
-                    loadingIndicator: Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            minimumSize: Size(double.infinity, 60),
-                            primary: Theme.of(context).primaryColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)
-                            )
-                        ),
-                        onPressed: null,
-                        child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
+                    loadingIndicator: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          minimumSize: Size(double.infinity, 60),
+                          primary: Theme.of(context).primaryColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)
+                          )
                       ),
+                      onPressed: null,
+                      child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
                     ),
                     builder: (context, data) {
                       _address = data["address"];
                       _placeId = data["placeId"];
                       //if(_address != null){
-                         return Expanded(
-                           child: ElevatedButton(
-                               style: ElevatedButton.styleFrom(
-                                   elevation: 0,
-                                   minimumSize: Size(double.infinity, 60),
-                                   primary: Theme.of(context).primaryColor,
-                                   shape: RoundedRectangleBorder(
-                                       borderRadius: BorderRadius.circular(8)
-                                   )
-                               ),
-                             onPressed: (){
-                               Navigator.of(context).pop({
-                                 'location': LocationResult(
-                                   latLng: locationProvider.lastIdleLocation,
-                                   address: _address,
-                                   placeId: _placeId,
-                                 )
-                               });
-                             },
-                             child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
+                         return ElevatedButton(
+                           style: ElevatedButton.styleFrom(
+                               elevation: 0,
+                               minimumSize: Size(double.infinity, 60),
+                               primary: Theme.of(context).primaryColor,
+                               shape: RoundedRectangleBorder(
+                                   borderRadius: BorderRadius.circular(8)
+                               )
                            ),
+                           onPressed: (){
+                             Navigator.of(context).pop({
+                               'location': LocationResult(
+                                 latLng: locationProvider.lastIdleLocation,
+                                 address: _address,
+                                 placeId: _placeId,
+                               )
+                             });
+                           },
+                           child: Text('Confirm location', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),),
                          );
                       //}
 
